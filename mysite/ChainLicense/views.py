@@ -32,7 +32,14 @@ def post_compare(request):
         form = SearchForm(request.POST)
         if form.is_valid():
             search = form.save(commit=False)
-            datas = Data.objects.filter(name=search.name, author=search.author)
+            if search.name:
+                if search.author:
+                    search.name = '%' + search.name
+                    datas = Data.objects.filter(name=search.name, author=search.author)
+                else: datas = Data.objects.filter(name=search.name)
+            else:
+                datas = Data.objects.filter(author=search.author)
+
             return render(request, 'ChainLicense/post_list.html', {'datas': datas})
 
     form = PostForm()
