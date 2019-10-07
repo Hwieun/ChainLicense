@@ -21,9 +21,10 @@
     </div>
 
    <div id="content">
+       <div style="margin:2em 1em 0 2em;">
         <h2>compare my idea to another ideas</h2>
-
-        <div style="padding:1em;">
+       </div>
+           <div style="padding:1em 0 0 1em;">
             <form method="post">
                 {% csrf_token %}
                 <label for="idea_name" style="padding-right:1em;">
@@ -36,7 +37,7 @@
                 </label>
                 <input type="submit" value="Search">
             </form>
-        </div>
-    </div>
+       </div>
+       </div>
 </body>
 </html>
